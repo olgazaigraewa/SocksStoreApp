@@ -17,4 +17,6 @@ public interface TransactionsFileService {
     File getTxtFile();
 
     boolean saveToJsonFile(String json);
+
+   File getJsonFile();
 }

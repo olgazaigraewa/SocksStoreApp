@@ -100,7 +100,46 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
         return null;
     }
 
+    @Override
+    public File getJsonFile(){
+        if (Files.exists(Path.of(transactionsJsonFilePath, transactionsJsonFileName))){
+            return new File(transactionsJsonFilePath + "/" + transactionsJsonFileName);
+        }
+        return null;
+    }
 
+
+    public String getTransactionsJsonFilePath() {
+        return transactionsJsonFilePath;
+    }
+
+    public void setTransactionsJsonFilePath(String transactionsJsonFilePath) {
+        this.transactionsJsonFilePath = transactionsJsonFilePath;
+    }
+
+    public String getTransactionsJsonFileName() {
+        return transactionsJsonFileName;
+    }
+
+    public void setTransactionsJsonFileName(String transactionsJsonFileName) {
+        this.transactionsJsonFileName = transactionsJsonFileName;
+    }
+
+    public String getTransactionsTXTFilePath() {
+        return transactionsTXTFilePath;
+    }
+
+    public void setTransactionsTXTFilePath(String transactionsTXTFilePath) {
+        this.transactionsTXTFilePath = transactionsTXTFilePath;
+    }
+
+    public String getTransactionsTXTFileName() {
+        return transactionsTXTFileName;
+    }
+
+    public void setTransactionsTXTFileName(String transactionsTXTFileName) {
+        this.transactionsTXTFileName = transactionsTXTFileName;
+    }
 }
 
 

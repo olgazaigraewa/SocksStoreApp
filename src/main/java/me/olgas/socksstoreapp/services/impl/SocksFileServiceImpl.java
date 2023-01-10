@@ -58,5 +58,15 @@ public class SocksFileServiceImpl implements SocksFileService {
         return new File(socksFilePath + "/" + socksFileName);
     }
 
+    @Override
+    public String getSocksFilePath() {
+        return socksFilePath;
+    }
+
+    @Override
+    public String getSocksFileName() {
+        return socksFileName;
+    }
+
 
 }

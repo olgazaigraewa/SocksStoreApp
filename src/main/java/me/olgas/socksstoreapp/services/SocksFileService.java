@@ -16,4 +16,6 @@ public interface SocksFileService {
     String getSocksFilePath();
 
     String getSocksFileName();
+
+
 }

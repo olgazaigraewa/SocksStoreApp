@@ -32,6 +32,22 @@ public class SocksFileServiceImplTest {
         pathFileForTesting = socksFileService.getSocksFilePath();
         nameFileForTesting = socksFileService.getSocksFileName();
     }
+    @Test
+    @DisplayName("Тест метода по очистке файла Json")
+    void testCleanFromFile() throws IOException{
+        assertTrue(socksFileService.cleanSocksFile());
+        assertTrue(Files.exists(Path.of(pathFileForTesting, nameFileForTesting)));
+        assertTrue(Files.deleteIfExists(Path.of(pathFileForTesting, nameFileForTesting)));
+        assertFalse(Files.exists(Path.of(pathFileForTesting, nameFileForTesting)));
+
+    }
+    @Test
+    @DisplayName("Тест метода по получению ранее сохраненного файла Json")
+    void testGetSocks(){
+        File testFile = new File(pathFileForTesting + "/" + nameFileForTesting);
+        assertEquals(testFile, socksFileService.getSocks());
+    }
+
 
     @Test
     @DisplayName("Тест метода по сохранению в файл списка товара в формате Json")
@@ -50,21 +66,8 @@ public class SocksFileServiceImplTest {
 
     }
 
-    @Test
-    @DisplayName("Тест метода по очистке файла Json")
-    void testCleanFromFile() throws IOException{
-        assertTrue(Files.exists(Path.of(pathFileForTesting, nameFileForTesting)));
-        assertTrue(Files.deleteIfExists(Path.of(pathFileForTesting, nameFileForTesting)));
-        assertFalse(Files.exists(Path.of(pathFileForTesting, nameFileForTesting)));
 
-    }
 
-    @Test
-    @DisplayName("Тест метода по очистке файла Json")
-    void testGetSocks(){
-        File testFile = new File(pathFileForTesting + "/" + nameFileForTesting);
-        assertEquals(testFile, socksFileService.getSocksFileName());
-    }
 
 
 

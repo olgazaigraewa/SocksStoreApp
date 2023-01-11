@@ -25,42 +25,6 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
     private String transactionsTXTFileName;
 
     @Override
-    public boolean saveToJsonFile(String json) {
-        try {
-            cleanTransactionsJsonFile();
-            Files.writeString(Path.of(transactionsJsonFilePath, transactionsJsonFileName), json);
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-
-    }
-
-    @Override
-    public boolean saveToTXTFile(String txt) {
-        try {
-            cleanTransactionsJsonFile();
-            Files.writeString(Path.of(transactionsTXTFilePath, transactionsTXTFileName), txt);
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-
-    }
-
-    @Override
-    public String readFromJsonFile() {
-        if (Files.exists(Path.of(transactionsJsonFilePath, transactionsJsonFileName))){
-           try {
-               Files.readString(Path.of(transactionsJsonFilePath, transactionsJsonFileName));
-            } catch (IOException e) {
-               e.printStackTrace();
-           }
-        }
-        return null;
-    }
-
-    @Override
     public boolean cleanTransactionsJsonFile(){
         try {
             Path path = Path.of(transactionsJsonFilePath, transactionsJsonFileName);
@@ -68,8 +32,9 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
             Files.createFile(path);
             return true;
         } catch (IOException e) {
-            return false;
+           e.printStackTrace();
         }
+        return false;
     }
 
     @Override
@@ -80,32 +45,61 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
             Files.createFile(path);
             return true;
         } catch (IOException e) {
-            return false;
+           e.printStackTrace();
         }
+        return false;
     }
 
-    @Override
-    public File getTransactions() {
-        if (Files.exists(Path.of(transactionsJsonFilePath,transactionsJsonFileName))){
-            return new File(transactionsJsonFilePath + "/" + transactionsJsonFileName);
-        }
-        return null;
 
-    }
     @Override
     public File getTxtFile(){
-        if (Files.exists(Path.of(transactionsTXTFilePath, transactionsTXTFileName))){
-            return new File(transactionsTXTFilePath + "/" + transactionsTXTFileName);
-        }
-        return null;
+        return new File(transactionsTXTFilePath + "/" + transactionsTXTFileName);
     }
 
     @Override
     public File getJsonFile(){
+        return new File(transactionsJsonFilePath + "/" + transactionsJsonFileName);
+    }
+
+    @Override
+    public boolean saveToJsonFile(String json) {
+        try {
+            cleanTransactionsJsonFile();
+            Files.writeString(Path.of(transactionsJsonFilePath, transactionsJsonFileName), json);
+            return true;
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean saveToTXTFile(String txt) {
+        try {
+            cleanTransactionsTXTFile();
+            Files.writeString(Path.of(transactionsTXTFilePath, transactionsTXTFileName), txt);
+            return true;
+        } catch (IOException e) {
+           e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public String readFromJsonFile() {
         if (Files.exists(Path.of(transactionsJsonFilePath, transactionsJsonFileName))){
-            return new File(transactionsJsonFilePath + "/" + transactionsJsonFileName);
+           try {
+               return Files.readString(Path.of(transactionsJsonFilePath, transactionsJsonFileName));
+            } catch (IOException e) {
+               e.printStackTrace();
+           }
         }
         return null;
+    }
+
+    @Override
+    public File getTransactions() {
+        return new File(transactionsJsonFilePath + "/" + transactionsJsonFileName);
     }
 
 
@@ -113,32 +107,16 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
         return transactionsJsonFilePath;
     }
 
-    public void setTransactionsJsonFilePath(String transactionsJsonFilePath) {
-        this.transactionsJsonFilePath = transactionsJsonFilePath;
-    }
-
     public String getTransactionsJsonFileName() {
         return transactionsJsonFileName;
-    }
-
-    public void setTransactionsJsonFileName(String transactionsJsonFileName) {
-        this.transactionsJsonFileName = transactionsJsonFileName;
     }
 
     public String getTransactionsTXTFilePath() {
         return transactionsTXTFilePath;
     }
 
-    public void setTransactionsTXTFilePath(String transactionsTXTFilePath) {
-        this.transactionsTXTFilePath = transactionsTXTFilePath;
-    }
-
     public String getTransactionsTXTFileName() {
         return transactionsTXTFileName;
-    }
-
-    public void setTransactionsTXTFileName(String transactionsTXTFileName) {
-        this.transactionsTXTFileName = transactionsTXTFileName;
     }
 }
 

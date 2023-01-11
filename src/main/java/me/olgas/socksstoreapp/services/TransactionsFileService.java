@@ -4,19 +4,20 @@ import java.io.File;
 
 public interface TransactionsFileService {
 
-    boolean saveToTXTFile(String txt);
-
-    String readFromJsonFile();
-
     boolean cleanTransactionsJsonFile();
 
     boolean cleanTransactionsTXTFile();
 
-    File getTransactions();
+  //  File getTransactions();
 
     File getTxtFile();
+    File getJsonFile();
 
     boolean saveToJsonFile(String json);
 
-   File getJsonFile();
+    boolean saveToTXTFile(String txt);
+
+    String readFromJsonFile();
+
+    File getTransactions();
 }

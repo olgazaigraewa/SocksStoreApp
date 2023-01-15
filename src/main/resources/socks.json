@@ -1,0 +1,128 @@
+{
+  "1": {
+    "socksColor": "WHITE",
+    "socksSize": "S",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "2": {
+    "socksColor": "WHITE",
+    "socksSize": "M",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "3": {
+    "socksColor": "RED",
+    "socksSize": "M",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "4": {
+    "socksColor": "RED",
+    "socksSize": "L",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "5": {
+    "socksColor": "BLACK",
+    "socksSize": "L",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "6": {
+    "socksColor": "WHITE",
+    "socksSize": "L",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "7": {
+    "socksColor": "WHITE",
+    "socksSize": "XL",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "8": {
+    "socksColor": "WHITE",
+    "socksSize": "XXL",
+    "cottonPart": 40,
+    "quantity": 100
+  },
+  "9": {
+    "socksColor": "YELLOW",
+    "socksSize": "S",
+    "cottonPart": 95,
+    "quantity": 100
+  },
+  "10": {
+    "socksColor": "YELLOW",
+    "socksSize": "M",
+    "cottonPart": 95,
+    "quantity": 100
+  },
+  "11": {
+    "socksColor": "YELLOW",
+    "socksSize": "L",
+    "cottonPart": 95,
+    "quantity": 100
+  },
+  "12": {
+    "socksColor": "YELLOW",
+    "socksSize": "XL",
+    "cottonPart": 95,
+    "quantity": 100
+  },
+  "13": {
+    "socksColor": "YELLOW",
+    "socksSize": "XXL",
+    "cottonPart": 95,
+    "quantity": 100
+  },
+  "14": {
+    "socksColor": "BROWN",
+    "socksSize": "S",
+    "cottonPart": 7,
+    "quantity": 100
+  },
+  "15": {
+    "socksColor": "BROWN",
+    "socksSize": "M",
+    "cottonPart": 7,
+    "quantity": 100
+  },
+  "16": {
+    "socksColor": "BROWN",
+    "socksSize": "L",
+    "cottonPart": 7,
+    "quantity": 100
+  },
+  "17": {
+    "socksColor": "BROWN",
+    "socksSize": "XL",
+    "cottonPart": 7,
+    "quantity": 100
+  },
+  "18": {
+    "socksColor": "BROWN",
+    "socksSize": "XXL",
+    "cottonPart": 7,
+    "quantity": 100
+  },
+  "19": {
+    "socksColor": "BLUE",
+    "socksSize": "S",
+    "cottonPart": 98,
+    "quantity": 100
+  },
+  "20": {
+    "socksColor": "BLUE",
+    "socksSize": "M",
+    "cottonPart": 98,
+    "quantity": 100
+  },
+  "21": {
+    "socksColor": "BLUE",
+    "socksSize": "L",
+    "cottonPart": 98,
+    "quantity": 100
+  }
+}

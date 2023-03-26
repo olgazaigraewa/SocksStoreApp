@@ -31,7 +31,10 @@ public class SocksServiceImpl implements SocksService {
 
 
     @Override
-    public boolean removeSocks(SocksColor socksColor, SocksSize socksSize, int cottonPart, int quantity) {
+    public boolean removeSocks(SocksColor socksColor,
+                               SocksSize socksSize,
+                               int cottonPart,
+                               int quantity) {
         transactionsRepository.addTransaction(socksColor, socksSize, cottonPart, quantity, TransactionsType.OUTCOME);
         return socksRepository.out(socksColor, socksSize, cottonPart, quantity);
     }

@@ -1,5 +1,5 @@
 package me.olgas.socksstoreapp.model;
 
 public enum TransactionsType {
-    INCOME, OUTCOME, CANCELLATION
+    INCOME, OUTCOME, CANCELLATION, INCOMING
 }

@@ -1,15 +1,15 @@
 package me.olgas.socksstoreapp.repositiry;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import me.olgas.socksstoreapp.model.*;
 import me.olgas.socksstoreapp.services.TransactionsFileService;
-import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.TreeMap;
@@ -28,12 +28,9 @@ public class TransactionRepository {
         this.transactionList = new TreeMap<>();
     }
 
-    @PostConstruct
-    private void init() {
-        transactionList = listFromFile();
-    }
 
-    public void addTransaction(SocksColor socksColor,
+
+    public boolean addTransaction(SocksColor socksColor,
                                SocksSize socksSize,
                                int cottonPart,
                                int quantity,
@@ -53,7 +50,8 @@ public class TransactionRepository {
                 onlyTime,
                 transactionsType));
         transactionsFileService.saveToJsonFile(jsonFromList());
-        transactionsFileService.saveToTXTFile(viewAllTransactions());
+        transactionsFileService.saveToTxtFile(viewAllTransactions());
+        return true;
     }
 
     private String jsonFromList() {
@@ -64,19 +62,6 @@ public class TransactionRepository {
             throw new RuntimeException(e);
         }
         return json;
-    }
-
-    private TreeMap<Long, Transaction> listFromFile() {
-        try {
-            String json = transactionsFileService.readFromJsonFile();
-            if (StringUtils.isNotBlank(json) || StringUtils.isNotEmpty(json)) {
-                transactionList = new ObjectMapper().readValue(json, new TypeReference<>() {
-                });
-            }
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        return transactionList;
     }
 
     public String viewAllTransactions() {

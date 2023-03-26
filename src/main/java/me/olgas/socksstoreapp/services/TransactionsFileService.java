@@ -6,16 +6,15 @@ public interface TransactionsFileService {
 
     boolean cleanTransactionsJsonFile();
 
-    boolean cleanTransactionsTXTFile();
-
-  //  File getTransactions();
+    boolean cleanTransactionsTxtFile();
 
     File getTxtFile();
+
     File getJsonFile();
 
     boolean saveToJsonFile(String json);
 
-    boolean saveToTXTFile(String txt);
+    boolean saveToTxtFile(String txt);
 
     String readFromJsonFile();
 

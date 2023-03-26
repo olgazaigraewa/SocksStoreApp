@@ -11,7 +11,7 @@ public interface SocksFileService {
 
     boolean cleanSocksFile();
 
-     File getSocks();
+     File getSocksJson();
 
     String getSocksFilePath();
 

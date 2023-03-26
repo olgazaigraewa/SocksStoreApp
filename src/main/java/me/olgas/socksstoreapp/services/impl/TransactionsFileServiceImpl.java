@@ -19,10 +19,10 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
     private String transactionsJsonFileName;
 
     @Value("${path.to.transactionsTXT.file}")
-    private String transactionsTXTFilePath;
+    private String transactionsTxtFilePath;
 
     @Value("${name.of.transactionsTXT.file}")
-    private String transactionsTXTFileName;
+    private String transactionsTxtFileName;
 
     @Override
     public boolean cleanTransactionsJsonFile(){
@@ -38,9 +38,9 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
     }
 
     @Override
-    public boolean cleanTransactionsTXTFile(){
+    public boolean cleanTransactionsTxtFile(){
         try {
-            Path path = Path.of(transactionsTXTFilePath, transactionsTXTFileName);
+            Path path = Path.of(transactionsTxtFilePath, transactionsTxtFileName);
             Files.deleteIfExists(path);
             Files.createFile(path);
             return true;
@@ -53,7 +53,7 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
 
     @Override
     public File getTxtFile(){
-        return new File(transactionsTXTFilePath + "/" + transactionsTXTFileName);
+        return new File(transactionsTxtFilePath + "/" + transactionsTxtFileName);
     }
 
     @Override
@@ -74,10 +74,10 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
     }
 
     @Override
-    public boolean saveToTXTFile(String txt) {
+    public boolean saveToTxtFile(String txt) {
         try {
-            cleanTransactionsTXTFile();
-            Files.writeString(Path.of(transactionsTXTFilePath, transactionsTXTFileName), txt);
+            cleanTransactionsTxtFile();
+            Files.writeString(Path.of(transactionsTxtFilePath, transactionsTxtFileName), txt);
             return true;
         } catch (IOException e) {
            e.printStackTrace();
@@ -111,12 +111,12 @@ public class TransactionsFileServiceImpl implements TransactionsFileService {
         return transactionsJsonFileName;
     }
 
-    public String getTransactionsTXTFilePath() {
-        return transactionsTXTFilePath;
+    public String getTransactionsTxtFilePath() {
+        return transactionsTxtFilePath;
     }
 
-    public String getTransactionsTXTFileName() {
-        return transactionsTXTFileName;
+    public String getTransactionsTxtFileName() {
+        return transactionsTxtFileName;
     }
 }
 

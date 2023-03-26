@@ -11,10 +11,10 @@ import java.nio.file.Path;
 
 @Service
 public class SocksFileServiceImpl implements SocksFileService {
-    @Value("${path.to.socks.file}")
+    @Value("${path.to.socksJson.file}")
     private String socksFilePath;
 
-    @Value("${name.of.socks.file}")
+    @Value("${name.of.socksJson.file}")
     private String socksFileName;
 
     @Override
@@ -31,9 +31,11 @@ public class SocksFileServiceImpl implements SocksFileService {
 
     @Override
     public String readFromFile() {
+        String result;
         if (Files.exists(Path.of(socksFilePath, socksFileName))) {
             try {
-                Files.readString(Path.of(socksFilePath, socksFileName));
+                result = Files.readString(Path.of(socksFilePath, socksFileName));
+                return result;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -54,7 +56,7 @@ public class SocksFileServiceImpl implements SocksFileService {
     }
 
     @Override
-    public File getSocks() {
+    public File getSocksJson() {
         return new File(socksFilePath + "/" + socksFileName);
     }
 

@@ -16,9 +16,7 @@ public enum SocksColor {
     SocksColor(String translation) {
         this.translation = translation;
     }
-    public String getTranslation() {
-        return translation;
-    }
+
 
 
 

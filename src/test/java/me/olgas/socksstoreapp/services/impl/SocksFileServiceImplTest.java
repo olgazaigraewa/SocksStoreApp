@@ -14,16 +14,20 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class SocksFileServiceImplTest {
 
-    private final SocksFileService socksFileService = new SocksFileServiceImpl();
+    private final SocksFileService socksFileService;
 
     @TempDir
     File tempDirForTesting;
 
     private String pathFileForTesting;
-
     private String nameFileForTesting;
+
+    SocksFileServiceImplTest(){
+        socksFileService = new SocksFileServiceImpl();
+    }
 
     @BeforeEach
     void setUp(){
@@ -33,7 +37,7 @@ public class SocksFileServiceImplTest {
         nameFileForTesting = socksFileService.getSocksFileName();
     }
     @Test
-    @DisplayName("Тест метода по очистке файла Json")
+    @DisplayName("Проверка корректной работы метода по очистке файла Json")
     void testCleanFromFile() throws IOException{
         assertTrue(socksFileService.cleanSocksFile());
         assertTrue(Files.exists(Path.of(pathFileForTesting, nameFileForTesting)));
@@ -43,9 +47,9 @@ public class SocksFileServiceImplTest {
     }
     @Test
     @DisplayName("Тест метода по получению ранее сохраненного файла Json")
-    void testGetSocks(){
+    void testGetSocksJson(){
         File testFile = new File(pathFileForTesting + "/" + nameFileForTesting);
-        assertEquals(testFile, socksFileService.getSocks());
+        assertEquals(testFile, socksFileService.getSocksJson());
     }
 
 
@@ -65,11 +69,5 @@ public class SocksFileServiceImplTest {
         assertEquals(stringForSave, saveString);
 
     }
-
-
-
-
-
-
 
 }

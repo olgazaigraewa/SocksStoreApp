@@ -33,7 +33,7 @@ public class FilesPassController {
     @GetMapping(value = "/socksExport")
     @Operation(summary = "Сохранение файла с остатками товара на складе на компьютер пользователя в формате json")
     public ResponseEntity<InputStreamResource> dowloadSocksJsonFile() throws FileNotFoundException {
-        File file = socksFileService.getSocks();
+        File file = socksFileService.getSocksJson();
         if (file.exists()) {
             InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
             return ResponseEntity.ok()
@@ -50,7 +50,7 @@ public class FilesPassController {
     @Operation(summary = "Загрузка файла с остатками товара на складе с компьютера пользоаателя")
     public ResponseEntity<Void> uploadSocksFile(@RequestParam MultipartFile file) {
         socksFileService.cleanSocksFile();
-        File dataFile = socksFileService.getSocks();
+        File dataFile = socksFileService.getSocksJson();
         if (file != null) {
             try (FileOutputStream fos = new FileOutputStream(dataFile)) {
                 IOUtils.copy(file.getInputStream(), fos);
